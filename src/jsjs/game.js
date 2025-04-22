@@ -1,5 +1,6 @@
 import { KEYBOARD_LETTERS, WORDS, WORDS_RUS, KEYBOARD_LETTERS_RUS} from "./const";
 import { langTranslate } from "./lang";
+import { elementsMap } from './domElements.js'
 
 const stopButton = document.getElementById('toggleLanguageMode')
 const gameDiv = document.getElementById("game");
@@ -194,6 +195,9 @@ export const startGame = () => {
     return quitButton;
   };
 
+  elementsMap.quit = document.getElementById('quit');
+  elementsMap.playAgain = document.getElementById('play-again');
+  elementsMap.triesLeft = document.getElementById('tries-text');
   // В функции startGame заменяем строку с insertAdjacentHTML на:
   gameDiv.appendChild(createQuitButton());
   langTranslate();

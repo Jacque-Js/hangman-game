@@ -1,11 +1,6 @@
 import { translations } from './langWords.js'
+import { elementsMap } from './domElements.js'
 
-const elementsMap = {
-  logo: document.getElementById('logo'),
-  startGame: document.getElementById('startGame'),
-  darkMode: document.getElementById('darkMode'),
-  langMode: document.getElementById('langMode'),
-};
 
 
 export const langTranslate = () => {
