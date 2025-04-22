@@ -1,8 +1,13 @@
-import { KEYBOARD_LETTERS, WORDS, WORDS_RUS, KEYBOARD_LETTERS_RUS} from "./const";
+import {
+  KEYBOARD_LETTERS,
+  WORDS,
+  WORDS_RUS,
+  KEYBOARD_LETTERS_RUS,
+} from "./const";
 import { langTranslate } from "./lang";
-import { elementsMap } from './domElements.js'
+import { elementsMap } from "./domElements.js";
 
-const stopButton = document.getElementById('toggleLanguageMode')
+const stopButton = document.getElementById("toggleLanguageMode");
 const gameDiv = document.getElementById("game");
 const logoH1 = document.getElementById("logo");
 
@@ -30,7 +35,7 @@ const createPlaceholdersHTML = () => {
   return `<div id="placeholders" class="flex flex-row">${placeholdersHTML}</div>`;
 };
 
-const getCurrentLang = () => localStorage.getItem('modeLang') || 'en';
+const getCurrentLang = () => localStorage.getItem("modeLang") || "en";
 
 const createKeyboard = () => {
   const keyboard = document.createElement("div");
@@ -39,14 +44,12 @@ const createKeyboard = () => {
     "mt-5",
     "flex",
     "justify-center",
-    "flex-wrap",
+    "flex-wrap"
   );
   keyboard.id = "keyboard";
 
-  
-  
-
-  const letters = getCurrentLang() === 'ru' ? KEYBOARD_LETTERS_RUS : KEYBOARD_LETTERS;
+  const letters =
+    getCurrentLang() === "ru" ? KEYBOARD_LETTERS_RUS : KEYBOARD_LETTERS;
 
   const keyboardHTML = letters.reduce((acc, curr) => {
     return (
@@ -123,13 +126,13 @@ const stopGame = (status) => {
   }
 
   stopButton.disabled = false;
-  logoH1.classList.remove("mt-25");
+  logoH1.classList.remove("mt-20");
 
   document.getElementById(
     "game"
   ).innerHTML += `<p>The word was: <span class="font-medium uppercase">${word}</span></p><button id="play-again" class="flex justify-center items-center bg-slate-200 dark:bg-indigo-500 dark:hover:bg-indigo-600 hover:bg-slate-300 rounded-md font-medium px-5 py-2 mt-5">Play Again</button>`;
-  elementsMap.playAgain = document.getElementById('play-again')
-  
+  elementsMap.playAgain = document.getElementById("play-again");
+
   document.getElementById("play-again").onclick = startGame;
   langTranslate();
 };
@@ -138,15 +141,14 @@ export const startGame = () => {
   triesLeft = 10;
   winCount = 0;
 
-  logoH1.classList.add("text-xl", "sm:text-xl", "md:text-xl","mt-20");
-  const langSecret = getCurrentLang()
-  const wordList = langSecret === 'ru' ? WORDS_RUS : WORDS;
+  logoH1.classList.add("text-xl", "sm:text-xl", "md:text-xl", "mt-20");
+  const langSecret = getCurrentLang();
+  const wordList = langSecret === "ru" ? WORDS_RUS : WORDS;
   const randomIndex = Math.floor(Math.random() * wordList.length);
   const wordToGuess = wordList[randomIndex];
   sessionStorage.setItem("word", wordToGuess); //сохраняет данные по парам(ключ-значение) + постоянное значение
 
   stopButton.disabled = true;
-
 
   gameDiv.innerHTML = createPlaceholdersHTML();
   gameDiv.innerHTML += `
@@ -177,10 +179,8 @@ export const startGame = () => {
     quitButton.className =
       "border border-black rounded-md hover:bg-slate-100 dark:border-white dark:hover:bg-zinc-600 px-4 py-1 mt-4";
 
-    // Добавляем кнопку в elementsMap
     elementsMap.quit = quitButton;
 
-    // Обработчик события
     quitButton.onclick = () => {
       const lang = localStorage.getItem("modeLang");
       const isSure = confirm(
@@ -195,10 +195,9 @@ export const startGame = () => {
     return quitButton;
   };
 
-  elementsMap.quit = document.getElementById('quit');
-  elementsMap.playAgain = document.getElementById('play-again');
-  elementsMap.triesLeft = document.getElementById('tries-text');
-  // В функции startGame заменяем строку с insertAdjacentHTML на:
+  elementsMap.quit = document.getElementById("quit");
+  elementsMap.playAgain = document.getElementById("play-again");
+  elementsMap.triesLeft = document.getElementById("tries-text");
   gameDiv.appendChild(createQuitButton());
   langTranslate();
 };
