@@ -1,6 +1,5 @@
 import { KEYBOARD_LETTERS, WORDS, WORDS_RUS, KEYBOARD_LETTERS_RUS} from "./const";
 import { langTranslate } from "./lang";
-import { elementsMap } from "./langWords.js";
 
 const stopButton = document.getElementById('toggleLanguageMode')
 const gameDiv = document.getElementById("game");
