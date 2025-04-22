@@ -6,7 +6,10 @@ export const translations = {
       langMode: "Language Mode",
       quit: "Quit",
       triesLeft: "TRIES LEFT:",
-      playAgain: 'Play Again'
+      playAgain: 'Play Again',
+      winText:'You won!',
+      loseText:'You lost...',
+      theWordWas: "The word was: "
     },
     ru: {
       logo: "[ ИГРА В ПАЛАЧА ]",
@@ -15,7 +18,10 @@ export const translations = {
       langMode: "Смена языка",
       quit: "Выход",
       triesLeft: "ОСТАЛОСЬ ПОПЫТОК:",
-      playAgain: 'Играть Снова'
+      playAgain: 'Играть Снова',
+      winText:'Победа!',
+      loseText:'Проигрыш...',
+      theWordWas: "Загаданное слово: "
     }    
   }
 

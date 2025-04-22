@@ -9,7 +9,7 @@ export const langTranslate = () => {
     
     Object.keys(elementsMap).forEach(key => {
       if (translation[key] && elementsMap[key]) {
-        elementsMap[key].textContent = translation[key];
+        elementsMap[key].innerHTML = translation[key];
       }
     });
   };

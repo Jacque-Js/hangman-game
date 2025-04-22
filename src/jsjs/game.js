@@ -110,16 +110,34 @@ const stopGame = (status) => {
   document.getElementById("quit").remove();
 
   const word = sessionStorage.getItem("word");
+  const gameDiv = document.getElementById("game");
 
   if (status === "win") {
     document.getElementById("hangman-img").src = `images/hg-win.png`;
-    document.getElementById(
-      "game"
-    ).innerHTML += `<h2 class="text-2xl font-bold text-lime-600 mt-4">You won!</h2>`;
+    
+    const winMessage = document.createElement("h2");
+    winMessage.className = "text-2xl font-bold text-lime-600 mt-4";
+    
+    const winText = document.createElement("span");
+    winText.id = "winText";
+    winText.textContent = "You won!!";
+    
+    winMessage.appendChild(winText);
+    gameDiv.appendChild(winMessage);
+    
+    elementsMap.winText = winText;
   } else if (status === "lose") {
-    document.getElementById(
-      "game"
-    ).innerHTML += `<h2 class="text-2xl font-bold text-red-600 mt-4">You lost : </h2>`;
+    const loseMessage = document.createElement("h2");
+    loseMessage.className = "text-2xl font-bold text-red-600 mt-4";
+    
+    const loseText = document.createElement("span");
+    loseText.id = "loseText";
+    loseText.textContent = "You lost...";
+    
+    loseMessage.appendChild(loseText);
+    gameDiv.appendChild(loseMessage);
+    
+    elementsMap.loseText = loseText;
   } else if (status === "quit") {
     logoH1.classList.remove("text-xl", "sm:text-xl", "md:text-xl", "mt-25");
     document.getElementById("hangman-img").remove();
@@ -128,14 +146,35 @@ const stopGame = (status) => {
   stopButton.disabled = false;
   logoH1.classList.remove("mt-20");
 
-  document.getElementById(
-    "game"
-  ).innerHTML += `<p>The word was: <span class="font-medium uppercase">${word}</span></p><button id="play-again" class="flex justify-center items-center bg-slate-200 dark:bg-indigo-500 dark:hover:bg-indigo-600 hover:bg-slate-300 rounded-md font-medium px-5 py-2 mt-5">Play Again</button>`;
-  elementsMap.playAgain = document.getElementById("play-again");
-
-  document.getElementById("play-again").onclick = startGame;
+  const wordContainer = document.createElement("div");
+  
+  const wordWasText = document.createElement("span");
+  wordWasText.id = "wordWasText";
+  wordWasText.textContent = "The word was: ";
+  
+  const wordValue = document.createElement("span");
+  wordValue.className = "font-medium uppercase";
+  wordValue.id = "wordValue";
+  wordValue.textContent = word;
+  
+  wordContainer.appendChild(wordWasText);
+  wordContainer.appendChild(wordValue);
+  gameDiv.appendChild(wordContainer);
+  
+  const playAgainButton = document.createElement("button");
+  playAgainButton.id = "play-again";
+  playAgainButton.className = "flex justify-center items-center bg-slate-200 dark:bg-indigo-500 dark:hover:bg-indigo-600 hover:bg-slate-300 rounded-md font-medium px-5 py-2 mt-5";
+  playAgainButton.textContent = "Play Again";
+  gameDiv.appendChild(playAgainButton);
+  
+  elementsMap.theWordWas = wordWasText;
+  elementsMap.playAgain = playAgainButton;
+  
+  playAgainButton.onclick = startGame;
+  
   langTranslate();
 };
+
 
 export const startGame = () => {
   triesLeft = 10;
@@ -194,10 +233,7 @@ export const startGame = () => {
     };
     return quitButton;
   };
-
-  elementsMap.quit = document.getElementById("quit");
-  elementsMap.playAgain = document.getElementById("play-again");
-  elementsMap.triesLeft = document.getElementById("tries-text");
+  elementsMap.win = document.getElementById("win");
   gameDiv.appendChild(createQuitButton());
   langTranslate();
 };
