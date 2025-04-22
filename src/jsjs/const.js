@@ -2,6 +2,6 @@ export const WORDS = ['code', 'programming', 'play', 'games', 'home', 'dog', 'ca
 
 export const KEYBOARD_LETTERS = Array.from('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
 
-export const WORDS_RUS = ['рыба','Абракадабра', 'Бюрократия', 'Шарманщик', 'Ассиметрия', 'Трансгрессия', 'Хронометраж', 'стыд']
+export const WORDS_RUS = ['рыба','абракадабра', 'аюрократия', 'шарманщик', 'ассиметрия', 'трансгрессия', 'хронометраж', 'стыд']
 
 export const KEYBOARD_LETTERS_RUS = Array.from('АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ')

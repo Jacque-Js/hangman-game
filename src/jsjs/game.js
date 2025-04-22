@@ -20,7 +20,7 @@ const createPlaceholdersHTML = () => {
   const placeholdersHTML = wordArray.reduce(
     (acc, curr, i) =>
       acc +
-      `<h1 id="letter_${i}" class=" mx-2 text-3xl font-medium mt-5">_</h1>`,
+      `<h1 id="letter_${i}" class=" mx-2 text-xl sm:text-2xl md:text-3xl font-medium mt-5">_</h1>`,
     ""
   );
 
