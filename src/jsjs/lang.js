@@ -2,7 +2,7 @@ import { translations, elementsMap} from './langWords.js'
 
 export const langTranslate = () => {
     const lang = localStorage.getItem('modeLang');
-    const translation = translations[lang];
+    const translation = translations[lang] || translations.en;
     
     Object.keys(elementsMap).forEach(key => {
       if (translation[key] && elementsMap[key]) {
@@ -21,7 +21,7 @@ export const langModeHandle = () => {
     langModelSwitcher.checked = true;
   }
   langTranslate()
-  
+
   langModelSwitcher.addEventListener("input", () => {
     if (htmlElement.lang === "en") {
       htmlElement.lang = "ru";
