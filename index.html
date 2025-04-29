@@ -27,22 +27,36 @@
   <body>
     <div id="app" class="h-screen flex flex-col justify-center items-center dark:text-white dark:bg-zinc-800">
       <div class="absolute top-6 left-6">
-        <label class="inline-flex items-center cursor-pointer">
+        <label class="inline-flex items-center cursor-pointer select-none">
           <input type="checkbox" id="toggleLanguageMode" value="" class="sr-only peer">
-          <div class="relative w-9 h-5 sm:w-11 sm:h-6 md:w-14 md:h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-gray-300 dark:peer-focus:ring-indigo-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:ms:top-[2px] after:md:top-0.5 after:start-[2px] after:ms:start-[2px] after:md:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:sm:h-5 after:sm:w-5 after:md:h-6 after:md:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-gray-200 dark:peer-checked:bg-indigo-500 peer-disabled:opacity-50"></div>
+          <div class="relative w-9 h-5 sm:w-11 sm:h-6 md:w-14 md:h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-gray-300 dark:peer-focus:ring-indigo-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:ms:top-[2px] after:md:top-0.5 after:start-[2px] after:ms:start-[2px] after:md:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:sm:h-5 after:sm:w-5 after:md:h-6 after:md:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-gray-200 dark:peer-checked:bg-indigo-500 peer-disabled:opacity-50 shadow-md" ></div>
           <span class="ms-3 text-xs sm:text-sm md:text-base font-medium text-gray-900 dark:text-gray-300 peer-disabled:opacity-50" id="langMode">Language Mode</span>
         </label>
       </div>
       <div class="absolute top-6 right-6">
-        <label class="inline-flex items-center cursor-pointer">
+        <label class="inline-flex items-center cursor-pointer select-none">
           <input type="checkbox" id="toggleDarkMode" value="" class="sr-only peer">
-          <div class="relative w-9 h-5 sm:w-11 sm:h-6 md:w-14 md:h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-gray-300 dark:peer-focus:ring-indigo-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:ms:top-[2px] after:md:top-0.5 after:start-[2px] after:ms:start-[2px] after:md:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:sm:h-5 after:sm:w-5 after:md:h-6 after:md:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-gray-200 dark:peer-checked:bg-indigo-500"></div>
+          <div class="relative w-9 h-5 sm:w-11 sm:h-6 md:w-14 md:h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-gray-300 dark:peer-focus:ring-indigo-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:ms:top-[2px] after:md:top-0.5 after:start-[2px] after:ms:start-[2px] after:md:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:sm:h-5 after:sm:w-5 after:md:h-6 after:md:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-gray-200 dark:peer-checked:bg-indigo-500 shadow-md" ></div>
           <span class="ms-3  text-xs sm:text-sm md:text-base font-medium text-gray-900 dark:text-gray-300" id="darkMode">Dark Mode</span>
         </label>
       </div>
-      <h1 id="logo" class="text-2xl sm:text-4xl md:text-5xl font-bold mask-b-to-100% ">[ HANGMAN GAME ]</h1>
+      <h1 id="logo" class="text-2xl sm:text-4xl md:text-5xl font-bold mask-b-to-100% select-none ">[ HANGMAN GAME ]</h1>
       <div id="game" class="mt-10 flex flex-col items-center">
-        <button id="startGame" class="bg-slate-200 dark:bg-indigo-500 dark:hover:bg-indigo-600 hover:bg-slate-300 rounded-md font-medium px-5 py-2" >Start game</button>
+        <button id="startGame" class="bg-slate-200 dark:bg-indigo-500 dark:hover:bg-indigo-600 hover:bg-slate-300 rounded-md font-medium px-5 py-2 shadow-md select-none transition-colors duration-300" >Start game</button>
+      </div>
+      <div>
+        <h3 id="difficult" class="text-sm sm:text-base md:text-lg font-bold mask-b-to-100% select-none mt-20">Сhoose the difficulty:</h3>
+      </div>
+      <div id="btn-styles" class="inline-flex rounded-md shadow-xs mt-3 select-none" role="group">
+        <button type="button" id="easy" class="w-17 h-8 sm:w-20 sm:h-10 md:w-24 md:h-12 shadow-md text-xs md:text-sm font-medium bg-gradient-to-b from-white to-gray-200  hover:to-gray-300 text-black dark:bg-gradient-to-b dark:from-indigo-200 dark:hover:from-indigo-50 dark:to-indigo-800 dark:hover:to-indigo-800 dark:text-white active:from-gray-50 active:to-gray-400 dark:active:from-indigo-300 dark:active:to-indigo-800 focus:ring-3 focus:ring-gray-300 dark:focus:ring-indigo-400  transition-colors duration-300 ease-in-out  rounded-l-lg">
+          Easy
+        </button>
+        <button type="button" id="medium" class="w-17 h-8 sm:w-20 sm:h-10 md:w-24 md:h-12 shadow-md text-xs md:text-sm font-medium bg-gradient-to-b from-white to-gray-200 hover:to-gray-300 text-black dark:bg-gradient-to-b dark:from-indigo-200 dark:hover:from-indigo-50 dark:to-indigo-800 dark:hover:to-indigo-800  dark:text-white active:from-gray-50 active:to-gray-400 dark:active:from-indigo-300 dark:active:to-indigo-800 focus:ring-3 focus:ring-gray-300 dark:focus:ring-indigo-400   transition-colors duration-300 ease-in-out ">
+          Medium
+        </button>
+        <button type="button" id="hard" class=" w-17 h-8 sm:w-20 sm:h-10 md:w-24 md:h-12 shadow-md text-xs md:text-sm font-medium bg-gradient-to-b from-white to-gray-200 hover:to-gray-300 text-black dark:bg-gradient-to-b dark:from-indigo-200 dark:hover:from-indigo-50 dark:to-indigo-800 dark:hover:to-indigo-800 dark:text-white  active:from-gray-50 active:to-gray-400 dark:active:from-indigo-300 dark:active:to-indigo-800 focus:ring-3 focus:ring-gray-300 dark:focus:ring-indigo-400 transition-colors duration-300 ease-in-out rounded-r-lg">
+          Hard
+        </button>
       </div>
     </div>
   </body>

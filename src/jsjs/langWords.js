@@ -9,7 +9,11 @@ export const translations = {
       playAgain: 'Play Again',
       winText:'You won!',
       loseText:'You lost...',
-      theWordWas: "The word was: "
+      theWordWas: "The word was: ",
+      langModeEasy: "Easy",
+      langModeMedium: "Medium",
+      langModeHard: "Hard",
+      langModeDifficult: "Сhoose the difficulty:",
     },
     ru: {
       logo: "[ ИГРА В ПАЛАЧА ]",
@@ -21,7 +25,11 @@ export const translations = {
       playAgain: 'Играть Снова',
       winText:'Победа!',
       loseText:'Проигрыш...',
-      theWordWas: "Загаданное слово: "
+      theWordWas: "Загаданное слово: ",
+      langModeEasy: "Легкий",
+      langModeMedium: "Средний",
+      langModeHard: "Сложный",
+      langModeDifficult: "Выберите сложность:"
     }    
   }
 
